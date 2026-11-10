@@ -11,8 +11,20 @@
 ├── robots.txt              禁止搜索引擎收录
 ├── .nojekyll               跳过 GitHub Pages 的 Jekyll 处理
 ├── assets/favicon.svg      站点图标
+├── docs/                   67 件原文（001–067）
+│   ├── NNN.pdf             在线查看用（Word 转 PDF，浏览器直接打开）
+│   └── NNN.docx            原始 Word 文件（供下载）
 └── deploy-github-pages.sh  一键发布脚本
 ```
+
+## 原文链接是怎么生成的
+
+1. `_match.py` 把总表 67 行与 01–05 目录的 67 份 docx 按「标题＋文号＋日期＋地区」打分配对，确保一一对应；
+2. `_prep_docs.py` 按序号复制成 `docs/NNN.docx`，并生成转换清单；
+3. Word COM（`_convert.ps1` 逻辑）批量导出 `docs/NNN.pdf`；
+4. `_addlinks.py` 把每行标题包成指向 `docs/NNN.pdf` 的链接，右侧加 `DOCX` 下载按钮。
+
+新增文件后重跑 1→4 即可，序号与表格行号严格对应。
 
 ## 已内置
 
