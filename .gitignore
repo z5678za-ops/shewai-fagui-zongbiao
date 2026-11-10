@@ -1,0 +1,6 @@
+# 本地构建辅助文件，不上传
+_*.py
+_*.ps1
+_*.tsv
+_mapping.json
+_index.bak.html
